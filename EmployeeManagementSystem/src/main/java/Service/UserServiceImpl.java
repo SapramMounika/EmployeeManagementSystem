@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
             User user = new User(registrationDto.getFirstName(),
                     registrationDto.getLastName(), registrationDto.getEmail(),
                     passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
-            return userRepository.save(user);
+            return UserRepository.save(user);
         }
 
         @Override
@@ -46,9 +46,9 @@ import org.springframework.stereotype.Service;
             return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
         }
 
-        @Override
-        public User save(UserRegistrationDto registrationDto) {
-            return null;
-        }
+        //@Override
+        //public User save(UserRegistrationDto registrationDto) {
+           // return null;
+        //}
     }
 
